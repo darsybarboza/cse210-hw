@@ -4,14 +4,23 @@ using System.Collections.Generic;
 class Program
 {
     static void Main(string[] args)
+
+
     {
         List<int> numbers = new List<int>();
-        
+    
+        {
+        Console.WriteLine("Enter a list of numbers, type 0 when finished.");
+            
+        }
         // Please note we could use a do-while loop here instead
         int userNumber = -1;
         while (userNumber != 0)
+           
+
         {
-            Console.Write("Enter a number (0 to quit): ");
+            
+            Console.Write("Enter number: ");
             
             string userResponse = Console.ReadLine();
             userNumber = int.Parse(userResponse);
@@ -30,12 +39,12 @@ class Program
             sum += number;
         }
 
-        Console.WriteLine($" The sum is: {sum}");
+        Console.WriteLine($"The sum is: {sum}");
 
         // Part 2: Compute the average 
 
         float average = ((float)sum) / numbers.Count;
-        Console.WriteLine ($" The average is : {average}");
+        Console.WriteLine ($"The average is : {average}");
 
         // Part 3 : Find the max
         int max = numbers [0];
@@ -48,7 +57,7 @@ class Program
             }
         }
 
-        Console.WriteLine($"The max is: {max}");
+        Console.WriteLine($"The largest number is: {max}");
 
         // Part 4 : The smallest positive number is
 
@@ -60,13 +69,21 @@ class Program
                 smallest= number;
             }
         }
-        Console.WriteLine($"The smallest positive number is {smallest}");
+        Console.WriteLine($"The smallest positive number is: {smallest}");
 
-        //Part 5 : Sorted list 
-        Array.Sort<int> (numbers);
-        foreach(int number in numbers) {
-            Console.WriteLine (numbers);
-        }
+
+        // Part 5 : Sorted the list 
+
+        numbers.Sort((x, y) => y.CompareTo(x));
+
+        Console.WriteLine("The sorted list:");
+        foreach (int number in numbers)
+        Console.WriteLine(String.Join("", number)); 
+       
+      
+
+       
+        
 
 
     }
