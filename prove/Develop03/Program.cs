@@ -84,7 +84,7 @@ What would you like to do?Enter de number:";
         string userInput = Console.ReadLine();
         userInput.ToLower();
         int userChoice = 0;
-        // This block catches any non integer values that are entered
+        
         try
         {
             if (userInput == "q")
