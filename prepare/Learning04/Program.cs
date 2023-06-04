@@ -4,22 +4,17 @@ class Program
 {
     static void Main(string[] args)
     {
-        Person  persona1 = new Person ();
-        persona1 ._Name = "Maria";
-        persona1 ._Age = 21;
+        // Create a base "Assignment" object
+        Assignment a1 = new Assignment("Samuel Bennett", "Multiplication");
+        Console.WriteLine(a1.GetSummary());
 
+        // Now create the derived class assignments
+        MathAssignment a2 = new MathAssignment("Roberto Rodriguez", "Fractions", "7.3", "8-19");
+        Console.WriteLine(a2.GetSummary()); 
+        Console.WriteLine(a2.GetHomeworkList());
 
-        Person person2 = new Person();
-        person2 ._Name = "Antonio";
-        person2 ._Age= 22;
-
-
-        Console.WriteLine ($"Persona 1 se llama  {persona1._Name} y tiene  {persona1._Age}  años");
-        Console.WriteLine ($"Persona 2 se llama  {person2._Name} y tiene  {person2._Age}  años");
-
-
-
-
-        Console.WriteLine("Hello Learning04 World!");
+        WritingAssignment a3 = new WritingAssignment("Mary Waters", "European History", "The Causes of World War II");
+        Console.WriteLine(a3.GetSummary());
+        Console.WriteLine(a3.GetWritingInformation());
     }
 }
