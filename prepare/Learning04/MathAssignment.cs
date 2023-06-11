@@ -13,6 +13,12 @@ public class MathAssignment : Assignment
         _problems = problems;
     }
 
+    //public string SummaryOfAssignment()
+    //{
+        //return $"Name {_studentName} topic {_topic}";
+
+    //}
+
     public string GetHomeworkList()
     {
         return $"Section {_textbookSection} Problems {_problems}";
