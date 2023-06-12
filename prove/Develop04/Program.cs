@@ -4,73 +4,70 @@ class Program
 {
     static void Main(string[] args)
     {
-        int opcion = 0;
+        int option = 0;
         do
-        { 
+        {
             Console.Clear();
             Console.WriteLine("Welcome to the Mindfulness Program");
-            Console.WriteLine ("\n" +
+            Console.WriteLine("\n" +
              "\n 1. Start breathing activity" +
              "\n 2. Start reflecting activity" +
              "\n 3. Start listing activity" +
              "\n 4. Quit \n");
-            Console.Write("Select a choice from the menu:");
-            opcion = Convert.ToInt32(Console.ReadLine());
-            
+            Console.Write("Select a choice from the menu: ");
+            option = Convert.ToInt32(Console.ReadLine());
 
-            switch(opcion)
+
+            switch (option)
             {
                 case 1:
-                
                     BreathingActivity breathing = new BreathingActivity("Breathing", 0);
                     breathing.GetActivityName();
                     breathing.GetActivityDescription();
-                    breathing.GetActivityDuration();
-                   
-
-                    
-
-                    
-                    
+                    breathing.SetActivityDuration();
+                    breathing.GetReady();
+                    breathing.StartActivity();
+                    breathing.EndActivity();
                     break;
 
                 case 2:
-                    ReflectingActivity reflecting = new ReflectingActivity("Reflecting",0 );
+                    ReflectingActivity reflecting = new ReflectingActivity("Reflecting", 0);
                     reflecting.GetActivityName();
                     reflecting.GetActivityDescription();
-                    reflecting.GetActivityDuration();
-
-
-
-                
-
-                    
-                    break;   
+                    reflecting.SetActivityDuration();
+                    reflecting.GetReady();
+                    reflecting.StartActivity();
+                    reflecting.EndActivity();
+                    break;
 
                 case 3:
-                    ListingActivity  listing = new ListingActivity ("Listing",0 );
+                    ListingActivity listing = new ListingActivity("Listing", 0);
                     listing.GetActivityName();
                     listing.GetActivityDescription();
-                    listing.GetActivityDuration();
-                    
-                    
-                    break; 
+                    listing.SetActivityDuration();
+                    listing.GetReady();
+                    listing.StartActivity();
+                    listing.EndActivity();
+                    break;
 
                 case 4:
-                    Console.WriteLine("Thank you for using the Mindfulness Program");
-                    break;     
+                    Console.Write("Thank you for using the Mindfulness Program");
+                    for (int i = 0; i < 3; i++)
+                    {
+                        Console.Write(".");
+                        Thread.Sleep(1000);
+                    }
+                    Console.Write("Goodbye!");
+                    Thread.Sleep(500);
+                    break;
 
 
                 default:
-                    Console.WriteLine ("Enter a valid option");
+                    Console.WriteLine("Enter a valid option");
                     break;
             }
+        } while (option != 4);
 
-            Console.ReadKey();
-        
 
-        }  while (opcion !=4);
-    
-        
     }
 }
