@@ -9,6 +9,7 @@ class Program
         {
             Console.Clear();
             Console.WriteLine("Welcome to the Mindfulness Program");
+            
             Console.WriteLine("\n" +
              "\n 1. Start breathing activity" +
              "\n 2. Start reflecting activity" +

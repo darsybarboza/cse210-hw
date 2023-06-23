@@ -4,28 +4,30 @@ class Program
 {
     static void Main(string[] args)
     {
-       Rectangle rectangle1 = new Rectangle();
-       rectangle1 ._basis = 3;
-       rectangle1 ._height = 7 ;
+        // Notice that the list is a list of "Shape" objects. That means
+        // you can put any Shape objects in there, and also, any object where
+        // the class inherits from Shape
+        List<Shape> shapes = new List<Shape>();
 
-       Console.WriteLine(rectangle1.Area());
+        Square s1 = new Square("Red", 3);
+        shapes.Add(s1);
 
+        Rectangle s2 = new Rectangle("Blue", 4, 5);
+        shapes.Add(s2);
 
+        Circle s3 = new Circle("Green", 6);
+        shapes.Add(s3);
 
-       Rectangle rectangle2 = new Rectangle();
-       rectangle2 ._basis = 1.5;
-       rectangle2 ._height = 4 ;
-       Console.WriteLine(rectangle2.Area());
+        foreach (Shape s in shapes)
+        {
+            // Notice that all shapes have a GetColor method from the base class
+            string color = s.GetColor();
 
+            // Notice that all shapes have a GetArea method, but the behavior is
+            // different for each type of shape
+            double area = s.GetArea();
 
-       Rectangle rectangle3 = new Rectangle();
-       rectangle3 ._basis = 7;
-       rectangle3 ._height = 10 ;
-       Console.WriteLine(rectangle3.Area());
-
-
-       Console.ReadKey();
-
-
+            Console.WriteLine($"The {color} shape has an area of {area}.");
+        }
     }
 }

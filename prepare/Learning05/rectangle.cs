@@ -1,15 +1,21 @@
 using System;
 
 
-public class Rectangle
+public class Rectangle : Shape
 {
     //añadir dos campos
-    public double _basis;
-    public double _height;
+    public double _length;
+    public double _width;
 
-    public double Area()
+    public Rectangle(string color , double length , double width) : base (color)
+
     {
-        double area = this._basis  * this._height;
-        return area;
+        _length = length;
+        _width = width;
+    }
+
+    public override double GetArea()
+    {
+        return _length * _width;
     }
 }
