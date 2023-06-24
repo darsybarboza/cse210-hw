@@ -1,81 +1,68 @@
 using System;
+using System.Text.Json;
 
 class Program
 {
     static void Main(string[] args)
     {
-    
-      int option = 0;
-        do
+        UserGoal user = new UserGoal();
+
+        Console.Clear();
+        Console.WriteLine("***Welcome to the Eternal Quest Program ***");
+
+        int option = 0;
+        while (option != 7)
         {
-            Console.Clear();
-            Console.WriteLine("***Welcome to the Eternal Quest Program ***");
-            Console.WriteLine ();
-            Console.WriteLine ("Menu Options:");
-            Console.WriteLine("\n" +
+            Console.WriteLine($"\nYou have {user.GetTotalPoints()} points.\n");
+            Console.WriteLine("Menu Options:");
+            Console.WriteLine(
              "\n 1. Create New Goal" +
              "\n 2. List Goals" +
              "\n 3. Save Goals" +
              "\n 4. Load Goals" +
-             "\n 5. Quit \n");
+             "\n 5. Record Event" +
+             "\n 6. Remove Goal" +
+             "\n 7. Quit" +
+             "\n"
+            );
             Console.Write("Select a choice from the menu: ");
-            
+            option = Int32.Parse(Console.ReadLine());
 
             switch (option)
             {
                 case 1:
-                
-                Console.WriteLine ("What is the name of your goal?");
-                Console.WriteLine("What is a short description of your goal?  ");
-                Console.Write("What is the amount of points associated with this goal?");
-                break;
+                    user.CreateGoal();
+                    break;
 
                 case 2:
-                
-                Console.WriteLine ("What is the name of your goal?");
-                Console.WriteLine("What is a short description of your goal?  ");
-                Console.Write("What is the amount of points associated with this goal?");
-
-                break;
+                    user.ListGoals();
+                    break;
 
                 case 3:
-                
-                Console.WriteLine("What is a short description of your goal?  ");
-                Console.Write("What is the amount of points associated with this goal?  ");
-                Console.Write("How many times does this goal need to be accomplished for a bonus?  ");
+                    user.SaveGoals();
+                    break;
 
+                case 4:
+                    user.LoadGoals();
+                    break;
 
-                break;
+                case 5:
+                    user.RecordGoalEvent();
+                    break;
+
+                case 6:
+                    user.RemoveGoal();
+                    break;
+
+                case 7:
+                    Console.WriteLine("\nThank you for using the program! We hope you enjoyed your quest!\n");
+                    break;
 
                 default:
-                  Console.Write ($"\nSorry the option you entered is not valid.");
-                  break;
+                    Console.Write($"\nSorry the option you entered is not valid.");
+                    break;
 
             }
-        } while (option != 6);
+        }
     }
 }
-
-
-      
-    
-
-
-    
-            
-                
-
-
-
-
-
-
-
-
-        
-
-
-
-
-        
-

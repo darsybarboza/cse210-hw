@@ -1,27 +1,31 @@
 using System;
 
-public abstract class Goal 
+public class Goal
 {
     //Atributes
 
-    private string _goalType;
+    private int _goalType;
     private string _goalName;
     private string _goalDescription;
     private int _goalPoints;
+    private bool _goalStatus;
 
 
 
     //Constructors
 
-    public Goal (string type , string name, string description, int points)
+    public Goal(string name, string description, int points, int type, bool status)
     {
-        _goalType= type;
+        _goalType = type;
         _goalName = name;
         _goalDescription = description;
         _goalPoints = points;
+        _goalStatus = status;
     }
 
-    public string GetGoalType()
+    //Methods
+
+    public int GetGoalType()
     {
         return _goalType;
 
@@ -35,7 +39,6 @@ public abstract class Goal
     public string GetDescription()
     {
         return _goalDescription;
-
     }
 
     public int GetPoints()
@@ -43,11 +46,14 @@ public abstract class Goal
         return _goalPoints;
     }
 
-    //Methods
+    public bool GetStatus()
+    {
+        return _goalStatus;
+    }
 
-    public abstract void ListGoal (int i);
-    public abstract string SaveGoal();
-    public abstract string LoadGoal ();
-    public abstract void RecordGoalEvent (List <Goal> goals);
+    public void SetStatus(bool status)
+    {
+        _goalStatus = status;
+    }
 
 }
