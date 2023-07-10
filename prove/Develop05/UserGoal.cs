@@ -274,6 +274,6 @@ public class UserGoal
         Console.Write("Which goal would like to remove from the list? ");
         int selection = Int32.Parse(Console.ReadLine());
         _goals.RemoveAt(selection - 1);
-        Console.WriteLine("The item has been successfully removed.");
+        Console.WriteLine("The item has been successfully removed");
     }
 }
